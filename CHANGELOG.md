@@ -1,5 +1,20 @@
 
 
+### 1.1.4 - 04/05/2016
+
+ Changes: 
+
+
+ * Fix google font url
+ * Merge pull request #37 from kevin-verschaeve/fix-google-font-url
+
+Fix google font url
+ * adding linkedin and mail icons and settings
+ * Merge pull request #38 from kevin-verschaeve/feature/more-follow-icons
+
+adding linkedin and mail icons and settings
+
+
 ### 1.1.3 - 19/01/2016
 
  Changes: 
