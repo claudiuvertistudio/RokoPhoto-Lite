@@ -56,7 +56,7 @@ add_action( 'after_setup_theme', 'rokophotolite_setup' );
 
 // Registering and enqueuing scripts/stylesheets to header/footer.
 function rokophotolite_scripts() {
-    wp_enqueue_style( 'rokophoto_font', 'fonts.googleapis.com/css?family=Open+Sans:400,600');
+    wp_enqueue_style( 'rokophoto_font', '//fonts.googleapis.com/css?family=Open+Sans:400,600');
     wp_enqueue_style( 'rokophotolite_style', get_stylesheet_uri(), array('rokophotolite_bootstrap','rokophotolite_animate','rokophotolite_font_awesome'));
 	wp_enqueue_style( 'rokophotolite_bootstrap', get_template_directory_uri() . '/css/bootstrap.css');
 	wp_enqueue_style( 'rokophotolite_animate', get_template_directory_uri() . '/css/animate.css');
@@ -454,6 +454,30 @@ function rokophotolite_customize_register($wp_customize)
         'settings' => 'rokophotolite_instagram_link'
     ));
 
+    $wp_customize->add_setting('rokophotolite_mail_link', array(
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'sanitize_email'
+    ));
+
+    $wp_customize->add_control('rokophotolite_mail_link', array(
+        'label' => __('Email address', 'rokophotolite'),
+        'section' => 'rokophotolite_footer_section',
+        'priority' => 50,
+        'settings' => 'rokophotolite_mail_link'
+    ));
+
+    $wp_customize->add_setting('rokophotolite_linkedin_link', array(
+        'capability' => 'edit_theme_options',
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control('rokophotolite_linkedin_link', array(
+        'label' => __('LinkedIn URL', 'rokophotolite'),
+        'section' => 'rokophotolite_footer_section',
+        'priority' => 55,
+        'settings' => 'rokophotolite_linkedin_link'
+    ));
+
     $wp_customize->add_setting('rokophotolite_footer_copyrights', array(
         'default' => 'RokoPhoto Lite. All Rights Reserved',
         'capability' => 'edit_theme_options',
@@ -463,7 +487,7 @@ function rokophotolite_customize_register($wp_customize)
     $wp_customize->add_control('rokophotolite_footer_copyrights', array(
         'label' => __('Footer Copyrights', 'rokophotolite'),
         'section' => 'rokophotolite_footer_section',
-        'priority' => 50,
+        'priority' => 60,
         'settings' => 'rokophotolite_footer_copyrights'
     ));
 }
