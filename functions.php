@@ -455,7 +455,6 @@ function rokophotolite_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('rokophotolite_mail_link', array(
-        'default' => '#',
         'capability' => 'edit_theme_options',
         'sanitize_callback' => 'sanitize_email'
     ));
@@ -468,7 +467,6 @@ function rokophotolite_customize_register($wp_customize)
     ));
 
     $wp_customize->add_setting('rokophotolite_linkedin_link', array(
-        'default' => '#',
         'capability' => 'edit_theme_options',
         'sanitize_callback' => 'esc_url_raw'
     ));
